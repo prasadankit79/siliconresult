@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result Downloader</title>
+  <link rel="stylesheet" crossorigin href="/assets/index-DTb7tfM4.css">
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+      transition-duration: 0.7s;
+    }
+    input[type="text"]:focus {
+      border-color: #3498db;
+      border-radius: 50px;
+    }
+  </style>
+  <h2> Ye lo Result Checker !!!</h2>
+  <h3>Pehle login into ERP uske baad kisi ka v check kr lo.</h3>
+
+  <input type="text" id="codePart" placeholder="Enter your sic in upper case" />
+  <button onclick="generateLink()">Download</button>
+
+  <script>
+    function generateLink() {
+      const codePart = document.getElementById("codePart").value.trim();
+      if (!codePart) {
+        alert("Please enter the code after SITBBS");
+        return;
+      }
+
+      const fullCode = "SITBBS" + codePart;
+      const url = `https://erp.silicon.ac.in/estcampus/autonomous_exam/final_semester_result_pdf_download.php?role_code=M1Z5SEVJM2dub0NWWE5GZy82dHh2QT09&student_code=${encodeURIComponent(fullCode)}&semester=undefined`;
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script> 
+</body>
+</html>
+
